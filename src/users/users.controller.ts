@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Param, Query, DefaultValuePipe, ParseIntPipe, Body, Headers, Ip } from "@nestjs/common";
-import { CreateUserDto } from "./create-user.dto";
+import { CreateUserDto } from "../dto/create-user.dto";
 
 //http://localhost:3000/users
 
