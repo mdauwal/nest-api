@@ -1,2 +1,8 @@
 POST http://localhost:3000/users
-Content-Type: application/json {"hi": }
+Content-Type: application/json 
+{
+  "name": 1234,
+  "age": 17,
+  "email": "invalid-email"
+}
+

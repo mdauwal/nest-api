@@ -24,8 +24,8 @@ export class ProductsController {
     public createUser(@Body() userData: {"name": string; "age": number}) {
         return `User created with name: ${userData.name}, and age: ${userData.age}`
     }
-    // @Get()
-    // public getCustomHeader(@Headers('Authorization') authHeader: string) {
-    //     return `Authorization header is: ${authHeader}`;
-    // }
+    @Get()
+    public getCustomHeader(@Headers('Authorization') authHeader: string) {
+        return `Authorization header is: ${authHeader}`;
+    }
 }
