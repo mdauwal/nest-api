@@ -1,7 +1,12 @@
 import { Controller, Get, Post, Param, Patch, Query, Body, Headers } from '@nestjs/common';
+import { ProductService } from './providers/products.service';
+
 
 @Controller('products')
 export class ProductsController {
+
+    constructor (private readonly productService: ProductService) {}
+
     @Post()
     createPost() {
         return 'This action create a new post'

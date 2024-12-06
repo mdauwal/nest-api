@@ -1,2 +1,4 @@
-GET http://localhost:3000/users/ip
+GET http://localhost:3000/users
+
+
 
