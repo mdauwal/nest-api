@@ -1,7 +1,7 @@
 {
-  "name": "afrifarma",
+  "name": "afritest",
   "version": "0.0.1",
-  "description": "Afri Farma",
+  "description": "Afri Farma Test API",
   "author": "Muhammad Auwal",
   "private": true,
   "license": "UNLICENSED",
