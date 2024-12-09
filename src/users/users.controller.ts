@@ -1,19 +1,32 @@
 import { Controller, Get, Post, Param, Query, DefaultValuePipe, ParseIntPipe, Body, Headers, Ip, Optional } from "@nestjs/common";
 import { UserService } from "./users.service";
+import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from "@nestjs/swagger";
 
 //http://localhost:3000/users
 
 @Controller('users')
+@ApiTags('users')
 
 export class UsersContoller{
   constructor (private readonly userService: UserService) {}
-
+    @ApiResponse({
+      status: 200, description: 'users fetched successfully based on the query'
+    })
     @Get()
     public getAllUsers(): string[] {
       
       return this.userService.getAllUsers();
     }
+    @ApiOperation({
+      summary: 'fetches all the users'
+    })
     @Get('/:id')
+    @ApiQuery({
+      name: 'limit',
+      type: 'number',
+      required: false,
+      description: 'The page number entry is empty',
+    })
     public getOneUser(): string[] {
       
       return this.userService.getOneUser();

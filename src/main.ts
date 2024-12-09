@@ -11,6 +11,9 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('API Documentation') 
     .setDescription('The API description') 
+    .setTermsOfService('http://termsofservice.com')
+    .setLicense('MIT LICENSE',
+      'https://github.com/git/git-scm.com/blob/gh-pages/MIT-LICENSE.txt')
     .setVersion('1.0') 
     .build();
 

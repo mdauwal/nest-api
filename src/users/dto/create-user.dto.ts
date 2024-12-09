@@ -1,7 +1,14 @@
-import { IsString, Max, Min, IsInt, IsEmail, Matches, IsOptional,  } from "class-validator";
-
+import { IsString, Max, Min, IsInt, IsEmail, Matches, IsOptional  } from "class-validator";
+import { ApiPropertyOptional } from "@nestjs/swagger";
 
 export class CreateUserDto {
+    @ApiPropertyOptional( {description: 'find user wiht a specific id', example: '1234'})
+    @IsInt()
+    @IsOptional()
+    id?: number;
+    
+
+    @ApiPropertyOptional()
     @IsString()
     name?: string;
 

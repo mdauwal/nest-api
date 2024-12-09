@@ -10,13 +10,10 @@ import { LogisticsController } from './logistics/logistics.controller';
 import { LogisticsModule } from './logistics/logistics.module';
 import { PaymentController } from './payment/payment.controller';
 import { PaymentModule } from './payment/payment.module';
-import { FarmersModule } from './farmers/farmers.module';
-import { ConsumersController } from './consumers/consumers.controller';
-import { ConsumersModule } from './consumers/consumers.module';
 
 @Module({
-  imports: [UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule, FarmersModule, ConsumersModule],
-  controllers: [AppController, OrderController, LogisticsController, PaymentController, ConsumersController],
+  imports: [UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule],
+  controllers: [AppController, OrderController, LogisticsController, PaymentController],
   providers: [AppService],
 })
 export class AppModule {}
