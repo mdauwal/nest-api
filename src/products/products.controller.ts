@@ -8,8 +8,8 @@ export class ProductsController {
     constructor (private readonly productService: ProductService) {}
 
     @Post()
-    createPost() {
-        return 'This action create a new post'
+    createProduct() {
+        return 'This action create a new product'
     }
     // @Get(':id')
     // public findOne(@Param('id') id: any) {

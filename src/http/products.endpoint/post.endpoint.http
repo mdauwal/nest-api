@@ -1,1 +1,9 @@
 POST http://localhost:3000/products
+Content-Type: application/json
+{
+    "title": "rice",
+    "productType": "post",
+    "productStatus": "draft",
+    "content": "This is a local rice",
+    "tags": ["opada", ""]
+}
