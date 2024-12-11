@@ -9,11 +9,12 @@ async function bootstrap() {
 
   // Swagger Configuration
   const config = new DocumentBuilder()
-    .setTitle('API Documentation') 
-    .setDescription('The API description') 
+    .setTitle('AfriFarma API Documentation') 
+    .setDescription('The API description')
     .setTermsOfService('http://termsofservice.com')
     .setLicense('MIT LICENSE',
       'https://github.com/git/git-scm.com/blob/gh-pages/MIT-LICENSE.txt')
+      .addServer('localhost://localhost/3000')
     .setVersion('1.0') 
     .build();
 
@@ -21,6 +22,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document); 
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 4000);
 }
 bootstrap();

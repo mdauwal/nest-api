@@ -10,9 +10,23 @@ import { LogisticsController } from './logistics/logistics.controller';
 import { LogisticsModule } from './logistics/logistics.module';
 import { PaymentController } from './payment/payment.controller';
 import { PaymentModule } from './payment/payment.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule],
+  imports: [TypeOrmModule.forRootAsync({
+    useFactory: () => ({
+    type: 'postgres',
+    host: 'localhost', 
+    port: 5432, 
+    username: 'MD Auwal', 
+    password: 'postgres',
+    database: 'postgres', 
+    // entities: [ ],
+    autoLoadEntities: true,
+    synchronize: true, // Set to false in production to avoid data loss
+    })
+  }),
+  UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule],
   controllers: [AppController, OrderController, LogisticsController, PaymentController],
   providers: [AppService],
 })

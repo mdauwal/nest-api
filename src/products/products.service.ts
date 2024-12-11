@@ -13,9 +13,9 @@ export class ProductService {
         return this.products
     }
 
-    addProduct(name: string): string {
-        this.products.push(name);
-        return `User ${name} added successfully`
+    addProduct(title: string): string {
+        this.products.push(title);
+        return `Product ${title} added successfully`
 
     }
 

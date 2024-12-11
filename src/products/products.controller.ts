@@ -7,9 +7,14 @@ export class ProductsController {
 
     constructor (private readonly productService: ProductService) {}
 
+    // @Post()
+    // createProduct() {
+    //     return 'This action create a new product'
+    // }
+
     @Post()
-    createProduct() {
-        return 'This action create a new product'
+    public addProduct (@Body("title")title: string): string {
+      return this.productService.addProduct(title);
     }
     // @Get(':id')
     // public findOne(@Param('id') id: any) {
@@ -25,10 +30,10 @@ export class ProductsController {
     public searchUsers(@Query('name') name: string, @Query('age') age: number) {
         return `Searching for the result with name: ${name}, age: ${age}`
     }
-    @Post()
-    public createUser(@Body() userData: {"name": string; "age": number}) {
-        return `User created with name: ${userData.name}, and age: ${userData.age}`
-    }
+    // @Post()
+    // public createUser(@Body() userData: {"name": string; "age": number}) {
+    //     return `User created with name: ${userData.name}, and age: ${userData.age}`
+    // }
     @Get()
     public getCustomHeader(@Headers('Authorization') authHeader: string) {
         return `Authorization header is: ${authHeader}`;
