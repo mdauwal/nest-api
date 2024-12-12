@@ -23,4 +23,12 @@ export class Product {
 
   @ManyToOne(() => User, (user) => user.id)
   farmer: User;
+
+  @Column()
+  isSold: boolean;
+
+  @Column()
+  views: string;   
+
+
 }

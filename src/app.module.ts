@@ -24,6 +24,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     // entities: [ ],
     autoLoadEntities: true,
     synchronize: true, // Set to false in production to avoid data loss
+    import: [],
+    inject: []
     })
   }),
   UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule],

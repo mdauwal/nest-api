@@ -1,8 +1,13 @@
  import { Injectable } from "@nestjs/common";
+ import { User } from "src/entities/user.entity";
+ import { InjectRepository } from "@nestjs/typeorm";
+ 
 
 @Injectable()
 
 export class UserService {
+
+    
 
     public users = ["Muhammad", "Moses", "Ahmad", "Yusuf"]
 
