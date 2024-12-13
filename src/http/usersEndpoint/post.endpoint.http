@@ -1,7 +1,9 @@
+### Create a User
 POST http://localhost:3000/users
-Content-Type: application/json 
+Content-Type: application/json
+
 {
-  "name": "Muhammad"
-
+  "name": "Muhammad Auwal",
+  "email": "mdtech@yahoo.com",
+  "password": "Password456"
 }
-

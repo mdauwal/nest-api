@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Order } from './order.entity';
+import { Order } from '../order/order.entity';
 
 export enum UserRole {
   FARMER = 'farmer',

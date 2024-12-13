@@ -1,9 +1,10 @@
-POST http://localhost:3000/products
+### Create a Product
+POST http://localhost:3000/api/products
 Content-Type: application/json
+
 {
-    "title": "maize",
-    "productType": "post",
-    "productStatus": "draft",
-    "content": "This is a local rice",
-    "tags": ["opada rice", "local rice"]
+  "name": "yam",
+  "description": "Latest local yam with tuber features",
+  "price": 699.99,
+  "stock": 100
 }

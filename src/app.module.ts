@@ -11,6 +11,7 @@ import { LogisticsModule } from './logistics/logistics.module';
 import { PaymentController } from './payment/payment.controller';
 import { PaymentModule } from './payment/payment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MetaoptionsModule } from './metaoptions/metaoptions.module';
 
 @Module({
   imports: [TypeOrmModule.forRootAsync({
@@ -19,7 +20,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     host: 'localhost', 
     port: 5432, 
     username: 'MD Auwal', 
-    password: 'postgres',
+    password: 'priceless',
     database: 'postgres', 
     // entities: [ ],
     autoLoadEntities: true,
@@ -28,7 +29,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     inject: []
     })
   }),
-  UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule],
+  UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule, MetaoptionsModule],
   controllers: [AppController, OrderController, LogisticsController, PaymentController],
   providers: [AppService],
 })
