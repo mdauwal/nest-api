@@ -1,8 +1,7 @@
-
-
-export enum productType{
-    STORY = 'story',
-    POST = 'post',
-    SERIES = 'series',
-    PAGE = 'page'
-}
+export enum productType {
+    CROPS = 'crops',
+    FRUITS = 'fruits',
+    VEGETABLES = 'vegetables',
+    LIVESTOCK = 'livestock',
+  }
+  

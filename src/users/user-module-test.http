@@ -1,0 +1,36 @@
+# Base URL for your API
+@baseUrl = http://localhost:4000
+
+### Create a New User
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Muhammad Auwal Yahaya",
+  "email": "muhammad@yahoo.com.com",
+  "password": "Password@123",
+  "phoneNumber": "+234-803-1234567",
+  "age": 30,
+  "role": "consumer"
+}
+
+### Get All Users
+GET {{baseUrl}}/users
+Content-Type: application/json
+
+### Get a Single User by ID
+GET {{baseUrl}}/users/1
+Content-Type: application/json
+
+### Update a User (Partial Update)
+PATCH {{baseUrl}}/users/1
+Content-Type: application/json
+
+{
+  "name": "Muhammad Yahaya",
+  "email": "muhammad@gmail.com"
+}
+
+### Delete a User
+DELETE {{baseUrl}}/users/1
+Content-Type: application/json

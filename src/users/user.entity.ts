@@ -23,6 +23,12 @@ export class User {
   @Column({nullable: false})
   password: string;
 
+  @Column({nullable: true})
+  phoneNumber: string;
+
+  @Column()
+  age: number;
+
   @Column({ type: 'enum', enum: UserRole, nullable: false })
   role: UserRole;
 

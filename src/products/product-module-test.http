@@ -1,0 +1,48 @@
+# Base URL
+@baseUrl = http://localhost:4000
+
+### 1. Create a Product
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Maize",
+  "description": "Freshly harvested yellow maize",
+  "price": 2000,
+  "stock": 50,
+  "location": "Kaduna, Nigeria",
+  "productType": "crops",
+  "productStatus": "pending",
+  "tags": ["organic", "maize"],
+  "imageUrl": "https://example.com/maize.jpg",
+  "isSold": false
+}
+
+### 2. Fetch All Products
+GET {{baseUrl}}/products
+Content-Type: application/json
+
+### 3. Fetch a Product by ID
+GET {{baseUrl}}/products/1
+Content-Type: application/json
+
+### 4. Update a Product
+PUT {{baseUrl}}/products/1
+Content-Type: application/json
+
+{
+  "name": "Updated Maize",
+  "description": "Yellow maize updated description",
+  "price": 2500,
+  "stock": 60,
+  "location": "Abuja, Nigeria",
+  "productType": "crops",
+  "productStatus": "in-progress",
+  "tags": ["organic", "fresh"],
+  "imageUrl": "https://example.com/updated_maize.jpg",
+  "isSold": true
+}
+
+### 5. Delete a Product
+DELETE {{baseUrl}}/products/1
+Content-Type: application/json

@@ -1,41 +1,37 @@
-import { Controller, Get, Post, Param, Patch, Query, Body, Headers } from '@nestjs/common';
+import { Controller, Post, Get, Param, Body, Put, Delete } from '@nestjs/common';
 import { ProductService } from './products.service';
-
+import { CreateProductsDto } from './dto/create.products.dto';
+import { Product } from './product.entity';
 
 @Controller('products')
-export class ProductsController {
+export class ProductController {
+  constructor(private readonly productService: ProductService) {}
 
-    constructor (private readonly productService: ProductService) {}
+  @Post()
+  async createProduct(@Body() createProductDto: CreateProductsDto): Promise<Product> {
+    return this.productService.createProduct(createProductDto);
+  }
 
-    // @Post()
-    // createProduct() {
-    //     return 'This action create a new product'
-    // }
+  @Get()
+  async getAllProducts(): Promise<Product[]> {
+    return this.productService.getAllProducts();
+  }
 
-    @Post()
-    public addProduct (@Body("title")title: string): string {
-      return this.productService.addProduct(title);
-    }
-    // @Get(':id')
-    // public findOne(@Param('id') id: any) {
-    //     console.log(id);
-        
-    //     return `This action returns product #${id}`
-    // }
-    @Patch('id')
-    public updateOne(@Param('id') id: string) {
-        return `This action update products #${id}`
-    }
-    @Get()
-    public searchUsers(@Query('name') name: string, @Query('age') age: number) {
-        return `Searching for the result with name: ${name}, age: ${age}`
-    }
-    // @Post()
-    // public createUser(@Body() userData: {"name": string; "age": number}) {
-    //     return `User created with name: ${userData.name}, and age: ${userData.age}`
-    // }
-    @Get()
-    public getCustomHeader(@Headers('Authorization') authHeader: string) {
-        return `Authorization header is: ${authHeader}`;
-    }
+  @Get(':id')
+  async getProductById(@Param('id') id: number): Promise<Product> {
+    return this.productService.getProductById(id);
+  }
+
+  @Put(':id')
+  async updateProduct(
+    @Param('id') id: number,
+    @Body() updateProductDto: Partial<CreateProductsDto>,
+  ): Promise<Product> {
+    return this.productService.updateProduct(id, updateProductDto);
+  }
+
+  @Delete(':id')
+  async deleteProduct(@Param('id') id: number): Promise<void> {
+    return this.productService.deleteProduct(id);
+  }
 }

@@ -1,4 +1,4 @@
-import { IsString, Max, Min, IsInt, IsEmail, Matches, IsOptional  } from "class-validator";
+import { IsString, Max, Min, IsInt, IsEmail, Matches, IsOptional, IsNumber  } from "class-validator";
 import { ApiPropertyOptional } from "@nestjs/swagger";
 
 export class CreateUserDto {
@@ -30,10 +30,10 @@ export class CreateUserDto {
     })
     readonly password?: string;
 
-    @IsOptional()
+    @IsString()
     @Matches(/^\+234-\d{3}-\d{7}$/,{
         message: "Phone number must be in the format +234-XXX-XXXXXXX",
     })
-    readonly phoneNumber?: string;
+    readonly phoneNumber: string;
 
 }
