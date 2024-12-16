@@ -12,6 +12,7 @@ import { PaymentController } from './payment/payment.controller';
 import { PaymentModule } from './payment/payment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MetaoptionsModule } from './metaoptions/metaoptions.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forRootAsync({
@@ -29,7 +30,7 @@ import { MetaoptionsModule } from './metaoptions/metaoptions.module';
     inject: []
     })
   }),
-  UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule, MetaoptionsModule],
+  UsersModule, ProductsModule, PartnersModule, OrderModule, LogisticsModule, PaymentModule, MetaoptionsModule, AuthModule],
   controllers: [AppController, OrderController, LogisticsController, PaymentController],
   providers: [AppService],
 })
