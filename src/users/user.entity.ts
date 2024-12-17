@@ -29,7 +29,7 @@ export class User {
   @Column()
   age: number;
 
-  @Column({ type: 'enum', enum: UserRole, nullable: false })
+  @Column({ type: 'enum', enum: UserRole, nullable: false, default: "consumer" })
   role: UserRole;
 
   @OneToMany(() => Order, (order) => order.user)

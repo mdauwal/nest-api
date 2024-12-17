@@ -22,3 +22,5 @@ export class Order {
   @Column({nullable: false})
   totalPrice: number;
 }
+
+ 

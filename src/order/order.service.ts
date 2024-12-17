@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Order } from './order.entity';
@@ -22,17 +22,22 @@ export class OrderService {
 
   async create(createOrderDto: CreateOrderDto): Promise<Order> {
     const { userId, productId, quantity, totalPrice, status } = createOrderDto;
-
+  
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
-      throw new Error('User not found');
+      throw new NotFoundException(`User with ID ${userId} not found`);
     }
-
+  
     const product = await this.productRepository.findOne({ where: { id: productId } });
     if (!product) {
-      throw new Error('Product not found');
+      throw new NotFoundException(`Product with ID ${productId} not found`);
     }
-
+  
+    // Ensure `quantity` and `totalPrice` are valid
+    if (quantity <= 0 || totalPrice <= 0) {
+      throw new BadRequestException('Quantity and total price must be positive numbers');
+    }
+  
     const order = this.orderRepository.create({
       user,
       product,
@@ -40,7 +45,7 @@ export class OrderService {
       totalPrice,
       status,
     });
-
+  
     return await this.orderRepository.save(order);
   }
 
@@ -50,16 +55,17 @@ export class OrderService {
 
   async findOne(id: number): Promise<Order> {
     const order = await this.orderRepository.findOne({
-      where: { id }, // Find order by ID
-      relations: ['user', 'product'], // Include related user and product
+      where: { id },
+      relations: ['user', 'product'],
     });
   
     if (!order) {
-      throw new Error('Order not found');
+      throw new NotFoundException(`Order with ID ${id} not found`);
     }
   
     return order;
   }
+  
   
 
   async update(id: number, updateOrderDto: UpdateOrderDto): Promise<Order> {

@@ -6,15 +6,15 @@ POST {{baseUrl}}/products
 Content-Type: application/json
 
 {
-  "name": "Maize",
-  "description": "Freshly harvested yellow maize",
-  "price": 2000,
-  "stock": 50,
-  "location": "Kaduna, Nigeria",
+  "name": "Rice",
+  "description": "Freshly harvested local rice",
+  "price": 5000,
+  "stock": 30,
+  "location": "Niger, Nigeria",
   "productType": "crops",
-  "productStatus": "pending",
-  "tags": ["organic", "maize"],
-  "imageUrl": "https://example.com/maize.jpg",
+  "productStatus": "available",
+  "tags": ["organic", "rice"],
+  "imageUrl": "https://example.com/rice.jpg",
   "isSold": false
 }
 
