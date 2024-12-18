@@ -6,12 +6,12 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-  "name": "Muhammad Auwal Yahaya",
-  "email": "muhammad@yahoo.com.com",
+  "name": "Aliyu Ahmed",
+  "email": "aliyu@gmail.com",
   "password": "Password@123",
   "phoneNumber": "+234-803-1234567",
   "age": 30,
-  "role": "consumer"
+  "role": "logistics_partner"
 }
 
 ### Get All Users

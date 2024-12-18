@@ -8,7 +8,7 @@ import { OrderController } from './order.controller';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Order, Product, User]), // Ensure Product is included here
+    TypeOrmModule.forFeature([Order, Product, User]),
   ],
   controllers: [OrderController],
   providers: [OrderService],
