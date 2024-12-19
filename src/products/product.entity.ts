@@ -35,6 +35,8 @@ export class Product {
   @Column({ nullable: true })
   imageUrl: string;
 
+  
+
   @ManyToOne(() => User, (user) => user.id,)
   farmer: User;
   // {cascade: true, eager: true}

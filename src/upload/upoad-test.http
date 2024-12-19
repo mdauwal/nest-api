@@ -1,0 +1,9 @@
+POST http://localhost:3000/upload
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="mine.jpeg"
+Content-Type: image/jpeg
+
+< ./C:/Users/MD Auwal/Downloads/mine.jpeg
+--boundary--
